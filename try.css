@@ -1,0 +1,30 @@
+*{
+   margin: 0;
+   scroll-snap-type: proximity;
+
+}
+body::-webkit-scrollbar{
+    display: none;
+}
+.hidden{
+    display: grid;
+    height: 800px;
+    width: 1600px;
+}
+
+.fifty{
+    display: grid;
+    height: 400px;
+    width: 1600px;
+}
+.ffty{
+    display: grid;
+    height: 550px;
+    width: 1600px;
+}
+.haalf{
+    display: grid;
+    height: 600px;
+    width: 1600px;
+}
+

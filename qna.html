@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+    <!-- <link rel="stylesheet" href="./assets/styles/styles.css" /> -->
+    <script defer src="https://unpkg.com/alpinejs@3.2.3/dist/cdn.min.js"></script>
+  </head>
+  <style>
+    
+    .arrow {
+    position: absolute;
+    align-self: flex-start;
+    left: 100px;
+    top: 50px;
+    transform: translate(-50%, -50%);
+    transform: rotate(90deg);
+    cursor: pointer;
+}
+
+.arrow span {
+    display: block;
+    width: 1.5vw;
+    height: 1.5vw;
+    border-bottom: 5px solid rgb(31, 31, 31);
+    border-right: 5px solid rgb(114, 112, 112);
+    transform: rotate(45deg);
+    margin: -10px;
+    animation: animate 2s infinite;
+}
+
+.arrow span:nth-child(2) {
+    animation-delay: -0.2s;
+}
+
+.arrow span:nth-child(3) {
+    animation-delay: -0.4s;
+}
+
+@keyframes animate {
+    0% {
+        opacity: 0;
+        transform: rotate(45deg) translate(-20px, -20px);
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: rotate(45deg) translate(20px, 20px);
+    }
+}
+
+    </style>
+  <body class="h-screen bg-blue-50">
+    <div class="arrow"><a href="explore.html">
+        <span></span>
+        <span></span>
+        <span></span></a>
+    </div>
+    <main class="p-5 bg-light-blue">
+        <div class="flex justify-center items-start my-2">
+          <div class="w-full sm:w-10/12 md:w-1/2 my-1">
+            <h2 class="text-xl font-semibold text-vnet-blue mb-2">FAQ - Placement job</h2>
+            <ul class="flex flex-col">
+              <li class="bg-white my-2 shadow-lg" x-data="accordion(1)">
+                <h2
+                  @click="handleClick()"
+                  class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
+                >
+                  <span>What Is a Work Placement?</span>
+                  <svg
+                    :class="handleRotate()"
+                    class="fill-current text-purple-700 h-6 w-6 transform transition-transform duration-500"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
+                  </svg>
+                </h2>
+                <div
+                  x-ref="tab"
+                  :style="handleToggle()"
+                  class="border-l-2 border-purple-600 overflow-hidden max-h-0 duration-500 transition-all"
+                >
+                  <p class="p-3 text-gray-900">
+                      A work placement for students refers to a monitored or supervised work schedule in an organisation. It allows students to experience the real-time “job” in a company. <br>
+  
+                      Almost always, an employer seeking to fill a vacant post for a particular job, asks for “experience,” apart from the required qualifications.
+                      <br>
+                     <b><u> Finding that perfect job</u></b> just after graduation can be difficult for students without work experience. That is why we stress the importance of work placements for students.
+                  </p>
+                </div>
+              </li>
+              <li class="bg-white my-2 shadow-lg" x-data="accordion(2)">
+                <h2
+                  @click="handleClick()"
+                  class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
+                >
+                  <span>What is the importance of placement?</span>
+                  <svg
+                    :class="handleRotate()"
+                    class="fill-current text-purple-700 h-6 w-6 transform transition-transform duration-500"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
+                  </svg>
+                </h2>
+                <div
+                  class="border-l-2 border-purple-600 overflow-hidden max-h-0 duration-500 transition-all"
+                  x-ref="tab"
+                  :style="handleToggle()"
+                >
+                  <p class="p-3 text-gray-900">
+                      Proper placement makes the employee happy and reduces absenteeism and labour turnover. Proper placement increases morale and efficiency of the employees and builds a good relation with the employer. A candidate who passes all the steps in the selection process is then offered the job.
+                  </p>
+                </div>
+              </li>
+              <li class="bg-white my-2 shadow-lg" x-data="accordion(3)">
+                <h2
+                  @click="handleClick()"
+                  class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
+                >
+                  <span>What are the types of placement?</span>
+                  <svg
+                    :class="handleRotate()"
+                    class="fill-current text-purple-700 h-6 w-6 transform transition-transform duration-500"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
+                  </svg>
+                </h2>
+                <div
+                  class="border-l-2 border-purple-600 overflow-hidden max-h-0 duration-500 transition-all"
+                  x-ref="tab"
+                  :style="handleToggle()"
+                >
+                  <p class="p-3 text-gray-900">
+                      <b>Emergency placements</b><br>
+                      involves caring for children or young people who need somewhere safe to stay immediately, usually for a few nights or weeks.
+                      <br>
+                      <b>Primary placements</b><br>
+                      involves looking after children or young people for a few months up to 2 years until difficulties at home are resolved or alternative plans are made for their future.  Primary placements could also involve caring for children or young people until they reach 18 years of age. <br>
+                      
+                      <b>Respite placements</b> <br>
+                      is caring for children or young people for short periods for their primary foster or kinship carer.
+                  </p>
+                </div>
+              </li>
+              <li class="bg-white my-2 shadow-lg" x-data="accordion(4)">
+                <h2
+                  @click="handleClick()"
+                  class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
+                >
+                  <span>What are the steps in placement?</span>
+                  <svg
+                    :class="handleRotate()"
+                    class="fill-current text-purple-700 h-6 w-6 transform transition-transform duration-500"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
+                  </svg>
+                </h2>
+                <div
+                  class="border-l-2 border-purple-600 overflow-hidden max-h-0 duration-500 transition-all"
+                  x-ref="tab"
+                  :style="handleToggle()"
+                >
+                  <p class="p-3 text-gray-900">
+                    <b>Campus placement has generally have the following stages.</b>  <br>
+                     1. Skill assessment test.<br>
+                     2. Group discussion.<br>
+                     3. Panel interview round.<br>
+                     4. Technical test.<br>
+                     5. General HR round.<br>
+                  </p>
+                </div>
+              </li>
+              <li class="bg-white my-2 shadow-lg" x-data="accordion(5)">
+                <h2
+                  @click="handleClick()"
+                  class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
+                >
+                  <span>Which language is good for placement?</span>
+                  <svg
+                    :class="handleRotate()"
+                    class="fill-current text-purple-700 h-6 w-6 transform transition-transform duration-500"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
+                  </svg>
+                </h2>
+                <div
+                  class="border-l-2 border-purple-600 overflow-hidden max-h-0 duration-500 transition-all"
+                  x-ref="tab"
+                  :style="handleToggle()"
+                >
+                  <p class="p-3 text-gray-900">
+                    1.  C++ Programming - Beginner to Advanced.<br>
+                    2.  Java Programming - Beginner to Advanced.<br>
+                    3.  C Programming - Beginner to Advanced.<br>
+                    4.  Python Foundation.<br>
+                    5. JavaScript Foundation.<br>
+                  </p>
+                </div>
+              </li>
+  
+              <li class="bg-white my-2 shadow-lg" x-data="accordion(6)">
+                  <h2
+                    @click="handleClick()"
+                    class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
+                  >
+                    <span>What is the role of students on a work placement?</span>
+                    <svg
+                      :class="handleRotate()"
+                      class="fill-current text-purple-700 h-6 w-6 transform transition-transform duration-500"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
+                    </svg>
+                  </h2>
+                  <div
+                    class="border-l-2 border-purple-600 overflow-hidden max-h-0 duration-500 transition-all"
+                    x-ref="tab"
+                    :style="handleToggle()"
+                  >
+                    <p class="p-3 text-gray-900">
+                      <b>To show commitment to the agency offering the placement.</b> To attend the placement for the duration of the agency working day and to complete the set number of days of the placement. To proactively identify own learning needs and opportunities, and make full use of all available learning opportunities.
+                    </p>
+                  </div>
+                </li>
+  
+              <li class="bg-white my-2 shadow-lg" x-data="accordion(7)">
+                <h2
+                  @click="handleClick()"
+                  class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
+                >
+                  <span>Is placement like an internship?</span>
+                  <svg
+                    :class="handleRotate()"
+                    class="fill-current text-purple-700 h-6 w-6 transform transition-transform duration-500"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
+                  </svg>
+                </h2>
+                <div
+                  class="border-l-2 border-purple-600 overflow-hidden max-h-0 duration-500 transition-all"
+                  x-ref="tab"
+                  :style="handleToggle()"
+                >
+                  <p class="p-3 text-gray-900">
+                    <b>placements usually last for a year – it is a longer and bigger commitment.</b>   Internships can vary across roles and industries but will usually last for a few weeks to a few months. Who can do it: placements are usually taken by 2nd or 3rd year university students during their degree.
+                  </p>
+                </div>
+              </li>
+              <li class="bg-white my-2 shadow-lg" x-data="accordion(8)">
+                <h2
+                  @click="handleClick()"
+                  class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
+                >
+                  <span>What is the aim of placement management system?</span>
+                  <svg
+                    :class="handleRotate()"
+                    class="fill-current text-purple-700 h-6 w-6 transform transition-transform duration-500"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
+                  </svg>
+                </h2>
+                <div
+                  class="border-l-2 border-purple-600 overflow-hidden max-h-0 duration-500 transition-all"
+                  x-ref="tab"
+                  :style="handleToggle()"
+                >
+                  <p class="p-3 text-gray-900">
+                    The main objective of the Placement Management System is to manage the details of the Student and Placement Cell, to reduce manual work and time.
+                  </p>
+                </div>
+              </li>
+              <li class="bg-white my-2 shadow-lg" x-data="accordion(9)">
+                <h2
+                  @click="handleClick()"
+                  class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
+                >
+                  <span>What are the steps in placement process?</span>
+                  <svg
+                    :class="handleRotate()"
+                    class="fill-current text-purple-700 h-6 w-6 transform transition-transform duration-500"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
+                  </svg>
+                </h2>
+                <div
+                  class="border-l-2 border-purple-600 overflow-hidden max-h-0 duration-500 transition-all"
+                  x-ref="tab"
+                  :style="handleToggle()"
+                >
+                  <p class="p-3 text-gray-900">
+                    Different Stages in Placement Process
+                     <br>1. Pre- Placement Talk Education Qualification.
+                     <br>2. Written Test.
+                   <br>  3. Group Discussion (optional/non-IT specific)
+                     <br>4. Technical Interview (optional/IT specific)
+                     <br>5. HR Interview.
+                     <br>6. Post-Placement Talk.
+                  </p>
+                </div>
+              </li>
+              <li class="bg-white my-2 shadow-lg" x-data="accordion(10)">
+                <h2
+                  @click="handleClick()"
+                  class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
+                >
+                  <span>What are types of placement?</span>
+                  <svg
+                    :class="handleRotate()"
+                    class="fill-current text-purple-700 h-6 w-6 transform transition-transform duration-500"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
+                  </svg>
+                </h2>
+                <div
+                  class="border-l-2 border-purple-600 overflow-hidden max-h-0 duration-500 transition-all"
+                  x-ref="tab"
+                  :style="handleToggle()"
+                >
+                  <p class="p-3 text-gray-900">
+                   Companies can choose from four different job placement types when selecting their next hire. These include direct, temp-to-perm, contract, and project-based hiring, and each one comes with its own set of benefits.
+                  </p>
+                </div>
+              </li>
+              <li class="bg-white my-2 shadow-lg" x-data="accordion(11)">
+                <h2
+                  @click="handleClick()"
+                  class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
+                >
+                  <span>What are placement methods?</span>
+                  <svg
+                    :class="handleRotate()"
+                    class="fill-current text-purple-700 h-6 w-6 transform transition-transform duration-500"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
+                  </svg>
+                </h2>
+                <div
+                  class="border-l-2 border-purple-600 overflow-hidden max-h-0 duration-500 transition-all"
+                  x-ref="tab"
+                  :style="handleToggle()"
+                >
+                  <p class="p-3 text-gray-900">
+                    "This is the <b>first stage of money laundering</b>. At this stage, illegal funds or assets are first brought into the financial system. This 'placement' makes the funds more liquid. For example, if cash is converted into a bank deposit, it becomes easier to transfer and manipulate.
+                  </p>
+                </div>
+              </li>
+              <li class="bg-white my-2 shadow-lg" x-data="accordion(12)">
+                <h2
+                  @click="handleClick()"
+                  class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
+                >
+                  <span>What is the role of placement?</span>
+                  <svg
+                    :class="handleRotate()"
+                    class="fill-current text-purple-700 h-6 w-6 transform transition-transform duration-500"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
+                  </svg>
+                </h2>
+                <div
+                  class="border-l-2 border-purple-600 overflow-hidden max-h-0 duration-500 transition-all"
+                  x-ref="tab"
+                  :style="handleToggle()"
+                >
+                  <p class="p-3 text-gray-900">
+                    In the simple words placement is concerned with the sending of newly selected personnel to some department for work. It is also concerned with the assignment of authority and responsibility to the new comer in the organisation.
+                  </p>
+                </div>
+              </li>
+              <li class="bg-white my-2 shadow-lg" x-data="accordion(13)">
+                <h2
+                  @click="handleClick()"
+                  class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
+                >
+                  <span>Is placement and job same?</span>
+                  <svg
+                    :class="handleRotate()"
+                    class="fill-current text-purple-700 h-6 w-6 transform transition-transform duration-500"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
+                  </svg>
+                </h2>
+                <div
+                  class="border-l-2 border-purple-600 overflow-hidden max-h-0 duration-500 transition-all"
+                  x-ref="tab"
+                  :style="handleToggle()"
+                >
+                  <p class="p-3 text-gray-900">
+                    What is the difference between a placement and a job? A job refers to a paid employment relationship between an employer and an employee, often related to a specific piece of work or role. A placement is the process or service, in which an agency finds a suitable job for a candidate.
+                  </p>
+                </div>
+              </li>
+              <li class="bg-white my-2 shadow-lg" x-data="accordion(14)">
+                <h2
+                  @click="handleClick()"
+                  class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
+                >
+                  <span>What are placement companies?</span>
+                  <svg
+                    :class="handleRotate()"
+                    class="fill-current text-purple-700 h-6 w-6 transform transition-transform duration-500"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
+                  </svg>
+                </h2>
+                <div
+                  class="border-l-2 border-purple-600 overflow-hidden max-h-0 duration-500 transition-all"
+                  x-ref="tab"
+                  :style="handleToggle()"
+                >
+                  <p class="p-3 text-gray-900">
+                    
+                      Placement companies are the firms that bring a standard level of capability to the task of searching the best talent for an organization. These firms can help you to get skilled and talented candidates, either by their database of the candidate or by publicizing under their banner.
+                  </p>
+                </div>
+              </li>
+              <li class="bg-white my-2 shadow-lg" x-data="accordion(15)">
+                <h2
+                  @click="handleClick()"
+                  class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
+                >
+                  <span>Which company is best for placement?</span>
+                  <svg
+                    :class="handleRotate()"
+                    class="fill-current text-purple-700 h-6 w-6 transform transition-transform duration-500"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
+                  </svg>
+                </h2>
+                <div
+                  class="border-l-2 border-purple-600 overflow-hidden max-h-0 duration-500 transition-all"
+                  x-ref="tab"
+                  :style="handleToggle()"
+                >
+                  <p class="p-3 text-gray-900">
+                    Top Companies for Off-Campus Placements <br>
+                      1.Accenture. <br>
+                      2.Cognizant: Cognizant Fresher Jobs (Blogger) <br>
+                      3.Infosys. Find out why Infosys should be one of your top choices for off-campus placements. <br>
+                      5.Genpact. Genpact is known to hire a large number of freshers during off-campus placements.<br>
+                      6.Ericsson.
+                      
+                  </p>
+                </div>
+              </li>
+              <li class="bg-white my-2 shadow-lg" x-data="accordion(16)">
+                <h2
+                  @click="handleClick()"
+                  class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
+                >
+                  <span>What is the difference between placement and work experience?
+                  </span>
+                  <svg
+                    :class="handleRotate()"
+                    class="fill-current text-purple-700 h-6 w-6 transform transition-transform duration-500"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
+                  </svg>
+                </h2>
+                <div
+                  class="border-l-2 border-purple-600 overflow-hidden max-h-0 duration-500 transition-all"
+                  x-ref="tab"
+                  :style="handleToggle()"
+                >
+                  <p class="p-3 text-gray-900">
+                   Typically, work experience is short-term, lasting for anywhere between a few days and a few weeks. Work placements on the other hand are for students who are completing an undergraduate degree at university. These normally range from approximately six months to a year.
+                  </p>
+                </div>
+              </li>
+              <li class="bg-white my-2 shadow-lg" x-data="accordion(17)">
+                <h2
+                  @click="handleClick()"
+                  class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
+                >
+                  <span>What is placement in college called?</span>
+                  <svg
+                    :class="handleRotate()"
+                    class="fill-current text-purple-700 h-6 w-6 transform transition-transform duration-500"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
+                  </svg>
+                </h2>
+                <div
+                  class="border-l-2 border-purple-600 overflow-hidden max-h-0 duration-500 transition-all"
+                  x-ref="tab"
+                  :style="handleToggle()"
+                >
+                  <p class="p-3 text-gray-900">
+  
+                      Campus placement or campus recruiting is a program conducted within universities or other educational institutions to provide jobs to students nearing completion of their studies. In this type of program, the educational institutions partner with corporations who wish to recruit from the student population.
+                  </p>
+                </div>
+              </li>
+              <li class="bg-white my-2 shadow-lg" x-data="accordion(18)">
+                <h2
+                  @click="handleClick()"
+                  class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
+                >
+                  <span>Which job is demand in future?
+                  </span>
+                  <svg
+                    :class="handleRotate()"
+                    class="fill-current text-purple-700 h-6 w-6 transform transition-transform duration-500"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
+                  </svg>
+                </h2>
+                <div
+                  class="border-l-2 border-purple-600 overflow-hidden max-h-0 duration-500 transition-all"
+                  x-ref="tab"
+                  :style="handleToggle()"
+                >
+                  <p class="p-3 text-gray-900">
+                  <b> Cyber Security Engineer </b><br>
+  
+  Due to an increasing number of cyber threats, these experts are in more demand than ever before. As per the www.naukri.com 2023 data, it is one of the top demanding jobs in India.
+                  </p>
+                </div>
+              </li>
+  
+            </ul>
+          </div>
+        </div>
+      </main>
+  </body>
+  <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.store('accordion', {
+        tab: 0
+      });
+      
+      Alpine.data('accordion', (idx) => ({
+        init() {
+          this.idx = idx;
+        },
+        idx: -1,
+        handleClick() {
+          this.$store.accordion.tab = this.$store.accordion.tab === this.idx ? 0 : this.idx;
+        },
+        handleRotate() {
+          return this.$store.accordion.tab === this.idx ? 'rotate-180' : '';
+        },
+        handleToggle() {
+          return this.$store.accordion.tab === this.idx ? `max-height: ${this.$refs.tab.scrollHeight}px` : '';
+        }
+      }));
+    })
+  </script>
+</html>

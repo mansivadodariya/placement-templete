@@ -1,0 +1,72 @@
+*{
+    margin: 0;
+    padding: 0;
+    margin: 10px;
+}
+
+
+img{
+
+    float: left;
+}
+.text-box{
+    margin-top: 15px;
+}
+.text-box h1{
+    padding-top: 80px;
+}
+
+
+
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+div {
+    display: block;
+}
+body {
+    --filters-box-padding: 14px;
+
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    line-height: 1.444;
+    font-family: NeurialGrotesk,sans-serif;
+    font-size: 1rem;
+    color: #181818;
+    font-weight: 400;
+}
+.absolute {
+    position: absolute;
+}
+body {
+    -webkit-text-size-adjust: 100%;
+    margin: 0;
+}
+.jobs{
+    float: left;
+    font-size:15px;
+}
+.graph{
+    float: right;
+   
+}
+h2{
+    text-align: center;
+}
+
+.Locations
+{
+  align-self: flex-end;
+    float: inline-end;
+   display: block;
+   padding-top: 50px;
+
+}

@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head><style>
+
+/* -------------------------------------
+ * For horizontal version, set the
+ * $vertical variable to false
+ * ------------------------------------- */
+/* -------------------------------------
+ * General Style
+ * ------------------------------------- */
+ @import url(https://fonts.googleapis.com/css?family=Noto+Sans);
+body {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 5%;
+  font-size: 100%;
+  font-family: "Noto Sans", sans-serif;
+  color: #eee9dc;
+  background: #487ab3;
+}
+
+h2 {
+  margin: 3em 0 0 0;
+  font-size: 1.5em;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* -------------------------------------
+ * timeline
+ * ------------------------------------- */
+#timeline {
+  list-style: none;
+  margin: 50px 0 30px 120px;
+  padding-left: 30px;
+  border-left: 8px solid #eee9dc;
+}
+#timeline li {
+  margin: 40px 0;
+  position: relative;
+}
+#timeline p {
+  margin: 0 0 15px;
+}
+
+.date {
+  margin-top: -10px;
+  top: 50%;
+  left: -158px;
+  font-size: 0.95em;
+  line-height: 20px;
+  position: absolute;
+}
+
+.circle {
+  margin-top: -10px;
+  top: 50%;
+  left: -44px;
+  width: 10px;
+  height: 10px;
+  background: #487ab3;
+  border: 5px solid #eee9dc;
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+}
+
+.content {
+  max-height: 20px;
+  padding: 50px 20px 0;
+  border-color: transparent;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 0.5em;
+  position: relative;
+}
+.content:before, .content:after {
+  content: "";
+  width: 0;
+  height: 0;
+  border: solid transparent;
+  position: absolute;
+  pointer-events: none;
+  right: 100%;
+}
+.content:before {
+  border-right-color: inherit;
+  border-width: 20px;
+  top: 50%;
+  margin-top: -20px;
+}
+.content:after {
+  border-right-color: #487ab3;
+  border-width: 17px;
+  top: 50%;
+  margin-top: -17px;
+}
+.content p {
+  max-height: 0;
+  color: transparent;
+  text-align: justify;
+  word-break: break-word;
+  hyphens: auto;
+  overflow: hidden;
+}
+
+label {
+  font-size: 1.3em;
+  position: absolute;
+  z-index: 100;
+  cursor: pointer;
+  top: 20px;
+  transition: transform 0.2s linear;
+}
+
+.radio {
+  display: none;
+}
+
+.radio:checked + .relative label {
+  cursor: auto;
+  transform: translateX(42px);
+}
+.radio:checked + .relative .circle {
+  background: #f98262;
+}
+.radio:checked ~ .content {
+  max-height: 180px;
+  border-color: #eee9dc;
+  margin-right: 20px;
+  transform: translateX(20px);
+  transition: max-height 0.4s linear, border-color 0.5s linear, transform 0.2s linear;
+}
+.radio:checked ~ .content p {
+  max-height: 200px;
+  color: #eee9dc;
+  transition: color 0.3s linear 0.3s;
+}
+
+/* -------------------------------------
+ * mobile phones (vertical version only)
+ * ------------------------------------- */
+@media screen and (max-width: 767px) {
+  #timeline {
+    margin-left: 0;
+    padding-left: 0;
+    border-left: none;
+  }
+  #timeline li {
+    margin: 50px 0;
+  }
+
+  label {
+    width: 85%;
+    font-size: 1.1em;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: block;
+    transform: translateX(18px);
+  }
+
+  .content {
+    padding-top: 45px;
+    border-color: #eee9dc;
+  }
+  .content:before, .content:after {
+    border: solid transparent;
+    bottom: 100%;
+  }
+  .content:before {
+    border-bottom-color: inherit;
+    border-width: 17px;
+    top: -16px;
+    left: 50px;
+    margin-left: -17px;
+  }
+  .content:after {
+    border-bottom-color: #4888b3;
+    border-width: 20px;
+    top: -20px;
+    left: 50px;
+    margin-left: -20px;
+  }
+  .content p {
+    font-size: 0.9em;
+    line-height: 1.4;
+  }
+
+  .circle, .date {
+    display: none;
+  }
+}
+
+
+.arrow {
+    position: absolute;
+    align-self: flex-start;
+    left: 100px;
+    top: 50px;
+    transform: translate(-50%, -50%);
+    transform: rotate(90deg);
+    cursor: pointer;
+}
+
+.arrow span {
+    display: block;
+    width: 1.5vw;
+    height: 1.5vw;
+    border-bottom: 5px solid rgb(224, 224, 224);
+    border-right: 5px solid rgb(255, 253, 253);
+    transform: rotate(45deg);
+    margin: -10px;
+    animation: animate 2s infinite;
+}
+
+.arrow span:nth-child(2) {
+    animation-delay: -0.2s;
+}
+
+.arrow span:nth-child(3) {
+    animation-delay: -0.4s;
+}
+
+@keyframes animate {
+    0% {
+        opacity: 0;
+        transform: rotate(45deg) translate(-20px, -20px);
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: rotate(45deg) translate(20px, 20px);
+    }
+}
+   
+
+
+
+</style>
+<body>
+    <div class="arrow"><a href="explore.html">
+        <span></span>
+        <span></span>
+        <span></span></a>
+    </div>
+    <h2>10 Tips for Choosing the Best Job</h2>
+<p>By Alison Doyle</p>
+<ul id='timeline'>
+  <li class='work'>
+    <input class='radio' id='work10' name='works' type='radio' checked>
+    <div class="relative">
+      <label for='work10'>Find the Best Fit</label>
+      <span class='date'>step 1</span>
+      <span class='circle'></span>
+    </div>
+    <div class='content'>
+      <p>
+        If you have the right skill set and experience, you can afford to be picky. You will be able to leverage your advantage to land a job that's closest to your ideal position. You’ll also be able to choose a job that is the best fit for your circumstances and career goals. <br>You don’t have to take the first job offer you get unless you're sure it's the perfect position for the next stage of your career.
+        <b>Take your time and make sure your next job is exactly what you’re looking for</b>
+      </p>
+    </div>
+  </li>
+  <li class='work'>
+    <input class='radio' id='work9' name='works' type='radio'>
+    <div class="relative">
+      <label for='work9'>Stay in Job Search Mode</label>
+      <span class='date'>step 2</span>
+      <span class='circle'></span>
+    </div>
+    <div class='content'>
+      <p>
+        Keep yourself in "continuous job search mode" so you're ready for opportunities as they arise. Keep all your job search documents up to date, especially your LinkedIn profile.
+<br>
+        Document your successes in your current job on at least a monthly basis and incorporate them into your resume. If your skills are in high demand, employers will often come after you, so be ready to respond to appealing options.
+     </p> 
+    </div>
+  </li>
+  <li class='work'>
+    <input class='radio' id='work8' name='works' type='radio'>
+    <div class="relative">
+      <label for='work8'>Create a Profile of Your Ideal Job and Employer</label>
+      <span class='date'>step 3</span>
+      <span class='circle'></span>
+    </div>
+    <div class='content'>
+      <p>
+        Creating a profile will help you identify attractive positions and pass on other jobs you don't think would be a good fit.
+<br>
+     Some questions you can ask yourself are: <br>
+    -Which activities are most satisfying about your current job? <br>
+-What might you like to avoid in your next job?<br>
+-What do you want in terms of work-life balance?<br>
+-What is your ideal company culture?<br>
+-Which jobs would be most satisfying for you?<br>
+<b>The key is to ask yourself what kind of work you would love to do.</b>    </p>
+    </div>
+  </li>
+  <li class='work'>
+    <input class='radio' id='work7' name='works' type='radio'>
+    <div class="relative">
+      <label for='work7'>Know What You're Worth</label>
+      <span class='date'>step 4</span>
+      <span class='circle'></span>
+    </div>
+    <div class='content'>
+      <p>
+        One of the advantages of being in high demand is the opportunity to upgrade your compensation. Research the going rate for your job through salary sources online, surveys by your professional organization, and informal networking with fellow professionals. Review these tips for determining how much you’re worth.
+      </p>
+    </div>
+  </li>
+  <li class='work'>
+    <input class='radio' id='work6' name='works' type='radio'>
+    <div class="relative">
+      <label for='work6'>Decide If You Want Higher Pay</label>
+      <span class='date'>step 5</span>
+      <span class='circle'></span>
+    </div>
+    <div class='content'>
+      <p>If you think you should be making more, consider asking for a raise or targeting other jobs with higher compensation. Many employers will match an offer from another organization. <br>
+        <b>Pay increases should be in line with an honest assessment of your knowledge, skills, and abilities. Compare yours to others in the field you're looking into.</b><br>
+        In some cases, a competing offer or changing jobs may be the only way to secure a substantial pay increase. Be careful that you don't issue an ultimatum to your current employer if you aren't ready to change jobs. You don’t want to lose the job you have before you’re ready to move on.
+      </p>
+    </div>
+  </li>
+  <li class='work'>
+    <input class='radio' id='work5' name='works' type='radio'>
+    <div class="relative">
+      <label for='work5'>Assess the Skills Needed for Your Ideal Job</label>
+      <span class='date'>step 6</span>
+      <span class='circle'></span>
+    </div>
+    <div class='content'>
+      <p>
+        If the next job you’d love to have requires skills or knowledge that you don't fully possess, or you want to expand your current responsibilities into new areas, explore whether you can incorporate or build upon these skills in your position.
+<br>
+This also could be an opportunity to change positions at your current employer if you're happy working at the company. <br><b>Your employer may be more flexible than you think in modifying your job if you are a highly valued employee—they don't want to lose you.</b>
+<br>Also, investigate classes and training opportunities to acquire the right background for your next job. Your employer might even agree to pay.
+         </p>
+    </div>
+  </li>
+  <li class='work'>
+    <input class='radio' id='work4' name='works' type='radio'>
+    <div class="relative">
+      <label for='work4'>Help Recruiters Find You</label>
+      <span class='date'>step 7</span>
+      <span class='circle'></span>
+    </div>
+    <div class='content'>
+      <p>When there are worker shortages, employers become more proactive in recruiting passive candidates. They will be more likely to utilize search firms to fish for candidates and mine prospects from LinkedIn. <br>
+
+        Consider utilizing a recruiter to help you find your ideal job, but make sure that you don't let them redefine your goals to meet the supply of jobs that they are promoting. Develop a complete LinkedIn profile, keep it up to date, and your next job might find you before you find it.
+        </p>
+    </div>
+  </li>
+  <li class='work'>
+    <input class='radio' id='work3' name='works' type='radio'>
+    <div class="relative">
+      <label for='work3'>Turn Down Lesser Job Offers</label>
+      <span class='date'>step 8</span>
+      <span class='circle'></span>
+    </div>
+    <div class='content'>
+      <p>Don't be afraid to turn down a job offer that seems less than ideal. <br><b>If you are in high demand, other offers will come your way. You might be better off staying in your current job until you find something very appealing.</b>
+        <br>Excessive job hopping can be a red flag on a resume, even for workers in high demand. Here’s how to turn down a job offer.
+      </p>
+    </div>
+  </li>
+  <li class='work'>
+    <input class='radio' id='work2' name='works' type='radio'>
+    <div class="relative">
+      <label for='work2'>Tap Your Connections</label>
+      <span class='date'>step 9</span>
+      <span class='circle'></span>
+    </div>
+    <div class='content'>
+      <p>
+        Reach out to contacts for information, advice, and suggestions about jobs. Share your profile for an ideal job and ask them to recommend positions within their sector.
+<br>
+Companies sometimes pay employees a bonus for candidate referrals, and recommendations from current staff are usually given careful consideration under any circumstances.    </p>
+    </div>
+  </li>
+  <li class='work'>
+    <input class='radio' id='work1' name='works' type='radio'>
+    <div class="relative">
+      <label for='work1'>Decide Which Job to Take</label>
+      <span class='date'>step 10</span>
+      <span class='circle'></span>
+    </div>
+    <div class='content'>
+      <p>
+        It can be harder to make a decision when you have more jobs to choose from. You may have to juggle multiple job offers, which can be stressful. <br>
+
+Don't accept a job offer right away. Take the time to evaluate each offer and to compare employee benefits packages carefully. It’s not all about the money; the benefits and perks you’re being offered are important, too, and some perks can be negotiated in a job offer.
+<br>
+Don’t rush into a decision about compensation and benefits. Take the time to consider all of your options carefully. Forget about the ones you didn’t take once your decision is made; instead, focus on the future and get ready to start your new job.  </p>
+    </div>
+  </li>
+ 
+</ul>
+</body>
+</html>

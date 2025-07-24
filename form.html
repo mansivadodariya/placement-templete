@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+    <form onsubmit="myfunc(event)">
+        <center><h1>Form submission</h1></center>
+        <center><p>To collabrate with BookNPark..</p></center>
+        <div class="owner">
+            <h2>Owner details</h2>
+            <div>
+                <label> Name:</label>
+                <input type="text" id="full_name"required/>
+            </div>
+            <div>
+                <label>Gender:</label>
+                <input type="text" id="gender" required/>
+            </div>
+            <div>
+                <label>contact no. :</label>
+                <input type="number" id="owcon"/>
+            </div>
+            <div>
+                <label>Email ID:</label>
+                <input type="email" id="email"/>
+            </div>
+            <h2> Details</h2>
+
+            <div>
+                <label for="">Ploat Name:</label>
+                <input type="text" id="ploat_name"required/>
+            </div>
+            <div>
+                <label for="">Ploat Address</label>
+                <input type="text" id="add" />
+            </div>
+            <div>
+                <label for="">Total parking space</label>
+                <input type="number" id="tploat">
+            </div>
+            <div>
+                <label for="">Number of parking space you want to provide</label>
+                <input type="number" id="pploat" required />
+            </div>
+            <div>
+                <label for="">Contact number:</label>
+                <input type="number" id="pcon">
+            </div>
+            <input type="submit" value="sumbit">
+        </div>
+    </form>
+    <script type="text/javascript">
+        function myfunc(event){
+            event.preventDefault();
+            var full_name = document.getElementById("full_name").value;
+            var gender = document.getElementById("gender").value;
+            var owcon = document.getElementById("owcon").value;
+            var email = document.getElementById("email").value;
+            var ploat_name = document.getElementById("ploat_name").value;
+            var add = document.getElementById("add").value;
+            var tploat = document.getElementById("tploat").value;
+            var pploat = document.getElementById("pploat").value;
+            var pcon = document.getElementById("pcon").value;
+
+            localStorage.setItem("ls_full_name",full_name);
+            localStorage.setItem("ls_gender",gender);
+            localStorage.setItem("ls_owcon",owcon);
+            localStorage.setItem("ls_email",email);
+            localStorage.setItem("ls_ploat_name",ploat_name);
+            localStorage.setItem("ls_add",add);
+            localStorage.setItem("ls_tplot",tploat);
+            localStorage.setItem("ls_pploat",pploat);
+            localStorage.setItem("ls_pcon",pcon);
+
+
+        }
+    </script>
+</body>
+</html>

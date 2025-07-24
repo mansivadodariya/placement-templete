@@ -1,0 +1,25 @@
+::-webkit-scrollbar{
+    display: none;
+}
+
+
+body{
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+
+.search{
+    overflow-x: hidden;
+    overflow-y: hidden;
+    display: grid;
+    height: 80px;
+    width: 1600px;
+}
+.job{
+    overflow-x: hidden;
+    overflow-y: hidden;
+    display: grid;
+    height: 800px;
+    width: 1600px; 
+}
